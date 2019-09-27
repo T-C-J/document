@@ -4,9 +4,17 @@ server:
 
 #primary
 spring:
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
   primary:
     datasource:
-      jdbc-url: jdbc:mysql://94.191.10.75:3306/test1?characterEncoding=utf-8
+      url: jdbc:mysql://94.191.10.75:3306/test1?characterEncoding=utf-8
       username: root
       password: 159357
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,14 +22,13 @@ spring:
   #secondary
   secondary:
     datasource:
-      jdbc-url: jdbc:mysql://94.191.10.75:3306/test2?characterEncoding=utf-8
+      url: jdbc:mysql://94.191.10.75:3306/test2?characterEncoding=utf-8
       username: root
       password: 159357
       driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-
       ddl-auto: update
       primary-dialect: org.hibernate.dialect.MySQL5Dialect
       secondary-dialect: org.hibernate.dialect.MySQL5Dialect
