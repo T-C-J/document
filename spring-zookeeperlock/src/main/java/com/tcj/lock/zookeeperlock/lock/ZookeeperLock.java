@@ -1,4 +1,4 @@
-package com.tcj.lock.zookeeperlock;
+package com.tcj.lock.zookeeperlock.lock;
 
 import javafx.concurrent.Worker;
 import org.apache.curator.RetryPolicy;
