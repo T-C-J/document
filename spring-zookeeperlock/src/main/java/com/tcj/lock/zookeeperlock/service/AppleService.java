@@ -1,5 +1,6 @@
 package com.tcj.lock.zookeeperlock.service;
 
+import com.tcj.lock.zookeeperlock.lock.RedisLock;
 import com.tcj.lock.zookeeperlock.lock.ZookeeperLock2;
 import com.tcj.lock.zookeeperlock.repository.AppleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,8 @@ public class AppleService {
 //    Lock lock = new ReentrantLock();
 
 //    Lock lock = new ZookeeperLock("apple");
-    Lock lock = new ZookeeperLock2();
+//    Lock lock = new ZookeeperLock2();
+    Lock lock = RedisLock.getLock("lock");
 
     @Transactional
     public /*synchronized*/ void buy(){
